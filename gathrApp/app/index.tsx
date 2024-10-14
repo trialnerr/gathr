@@ -1,3 +1,5 @@
+import HomeButtons from '@/components/HomeButtons';
+import { ThemedView } from '@/components/ThemedView';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 export default function Index() {
@@ -7,24 +9,21 @@ export default function Index() {
         <Text style={styles.title}>Gathr</Text>
         <Text style={styles.subtitle}>lorem ipsum</Text>
       </View>
-      
+
       {/* Placeholder for the icon or background image */}
       <View style={styles.imageContainer}>
         <Text style={styles.imagePlaceholder}>Icon or backgroundImage</Text>
       </View>
 
       {/* Sign-up buttons */}
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up w/ Gmail</Text>
-      </TouchableOpacity>
-      
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up w/ Facebook</Text>
-      </TouchableOpacity>
+      <View style = {styles.buttonContainer}>
+        <HomeButtons buttonText='Continue with Email'></HomeButtons>
+        <HomeButtons buttonText='Continue with Google'></HomeButtons>
+        <HomeButtons buttonText='Continue with Facebook'></HomeButtons>
+      </View>
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Sign Up w/ Google</Text>
-      </TouchableOpacity>
+      
+
     </View>
   );
 }
@@ -62,11 +61,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#999',
   },
+  buttonContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: 100,
+  },
   button: {
     backgroundColor: '#ddd',
     padding: 15,
     marginBottom: 20,
-    borderRadius: 10,
+    borderRadius: 40,
     width: '80%',
     alignItems: 'center',
   },
