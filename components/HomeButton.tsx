@@ -5,7 +5,7 @@ type Props = {
   onPress?: () => void;
 }
 
-const HomeButtons = ({ buttonText, onPress }: Props) => {
+const HomeButton = ({ buttonText, onPress }: Props) => {
   return (
     <TouchableOpacity style={styles.button} onPress={onPress} >
       <Text style={styles.buttonText}>{ buttonText}</Text>
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
 
 
 
-export default HomeButtons
+export default HomeButton;
