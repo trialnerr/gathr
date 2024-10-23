@@ -1,6 +1,5 @@
 import HomeButtons from '@/components/HomeButtons';
-import { ThemedView } from '@/components/ThemedView';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function Index() {
   return (
