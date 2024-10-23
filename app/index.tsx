@@ -1,4 +1,5 @@
-import HomeButtons from '@/components/HomeButtons';
+import HomeButton from '@/components/HomeButton';
+import { router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function Index() {
@@ -15,14 +16,17 @@ export default function Index() {
       </View>
 
       {/* Sign-up buttons */}
-      <View style = {styles.buttonContainer}>
-        <HomeButtons buttonText='Continue with Email'></HomeButtons>
-        <HomeButtons buttonText='Continue with Google'></HomeButtons>
-        <HomeButtons buttonText='Continue with Facebook'></HomeButtons>
+      <View style={styles.buttonContainer}>
+        <HomeButton
+          buttonText='Continue with Email'
+          onPress={() => {
+            console.log('Continued with Email');
+            router.push('/login')
+          }}
+        />
+        <HomeButton buttonText='Continue with Google'></HomeButton>
+        <HomeButton buttonText='Continue with Facebook'></HomeButton>
       </View>
-
-      
-
     </View>
   );
 }
@@ -77,4 +81,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
