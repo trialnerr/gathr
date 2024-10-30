@@ -1,4 +1,4 @@
-import HomeButton from '@/components/HomeButton';
+import HomeButton from '@/components/HomeButton'; //@here is a path alias to the components folder
 import { router } from 'expo-router';
 import { StyleSheet, Text, View } from 'react-native';
 
