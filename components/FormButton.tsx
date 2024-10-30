@@ -6,7 +6,6 @@ type Props = {
   onPress: () => void;
 };
 
-
 export default function FormButton({ buttonText, onPress }: Props) {
   return (
     <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
