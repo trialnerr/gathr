@@ -1,12 +1,33 @@
-import FormButton from "@/components/FormButton";
-import FormInput from "@/components/FormInput";
-import { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity} from "react-native";
+import FormButton from '@/components/FormButton';
+import FormInput from '@/components/FormInput';
+import { useState } from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+// import axios from 'axios';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log({ email, password});
+
+  const handleLogin = async () => {
+    try {
+      // const response = await fetch('https://localhost:5001/api/users', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({ email, password }),
+      // });
+      const response = await fetch('https://swapi.dev/api/people/1');
+      if (!response.ok) {
+        Alert.alert('Error', 'err response not ok');
+      }
+      const data = await response.json();
+      Alert.alert('Success', data);
+    } catch (error) {
+      Alert.alert('Error', `Something went wrong, ${error}`);
+    }
+  };
+  console.log({ email, password });
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to gathr!</Text>
@@ -23,7 +44,7 @@ export default function Login() {
         onChangeText={(userPassword) => setPassword(userPassword)}
         secureTextEntry={true}
       ></FormInput>
-      <FormButton buttonText='Login' onPress={() => alert('login button')} />
+      <FormButton buttonText='Login' onPress={handleLogin} />
       <TouchableOpacity
         style={styles.navButton}
         // onPress={() => navigation.navigate('Signup')}
@@ -33,7 +54,6 @@ export default function Login() {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -55,6 +75,4 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '',
   },
-
- 
-})
+});
